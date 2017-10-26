@@ -5,7 +5,7 @@ $ make ergodox_ez:custom
 ```
 
 # source
-http://configure.ergodox-ez.com/keyboard_layouts/qvgljl/edit
+http://configure.ergodox-ez.com/keyboard_layouts/krnawb/edit
 
 and
 
