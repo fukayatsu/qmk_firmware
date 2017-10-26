@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+url = File.open('.last_url').read.chomp
+`open #{url}`

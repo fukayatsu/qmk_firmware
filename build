@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+unless url = ARGV.first
+  puts 'url not specified'
+end
+
+# http://configure.ergodox-ez.com/keyboard_layouts/kwgolg/download_source
+
+id = url.scan(/keyboard_layouts\/(.+)\//).flatten.first
+
+source_url = "http://configure.ergodox-ez.com/keyboard_layouts/#{id}/download_source"
+
+require 'open-uri'
+
+source = open(source_url).read
+code = source[source.index('const uint16_t PROGMEM keymaps[]')..-1]
+  .gsub('KC_LANG1', 'GUI_T(KC_LANG1)')
+  .gsub('KC_LANG2', 'GUI_T(KC_LANG2)')
+
+keymap = <<~EOS
+#include QMK_KEYBOARD_H
+#include "debug.h"
+#include "action_layer.h"
+#include "version.h"
+
+enum custom_keycodes {
+  PLACEHOLDER = SAFE_RANGE, // can always be here
+  EPRM,
+  VRSN,
+  RGB_SLD,
+};
+
+#{code}
+EOS
+
+File.open('keyboards/ergodox_ez/keymaps/custom/keymap.c', 'w') do |f|
+  f.write keymap
+end
+
+`make ergodox_ez:custom`
+
+File.open('.last_url', 'w') do |f|
+  f.write "http://configure.ergodox-ez.com/keyboard_layouts/#{id}/clone"
+end

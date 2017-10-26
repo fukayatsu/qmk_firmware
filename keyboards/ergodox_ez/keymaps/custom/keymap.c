@@ -8,7 +8,6 @@ enum custom_keycodes {
   EPRM,
   VRSN,
   RGB_SLD,
-
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -59,7 +58,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-
+    
   }
   return true;
 }
@@ -104,3 +103,4 @@ void matrix_scan_user(void) {
     }
 
 };
+
