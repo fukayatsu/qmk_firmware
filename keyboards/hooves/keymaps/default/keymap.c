@@ -18,8 +18,8 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
-    _RAISE,
-    _LOWER
+    _LOWER,
+    _RAISE
 };
 
 #define RAISE MO(_RAISE)
@@ -35,19 +35,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /**/                             KC_BSPC, KC_LCTL, KC_LALT,     KC_RALT, KC_ENT,  KC_SPC,                             \
 /**/                             RAISE,   KC_LGUI, KC_LSFT,     KC_RSFT, KC_RGUI, LOWER                               \
 ),
+[_LOWER] = LAYOUT( \
+/**/  T__,     ___,     ___,     ___,     ___,     ___,         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC, KC_MINS, \
+/**/  T__,     KC_P1,   KC_P2,   KC_P3,   KC_P4,   KC_P5,       KC_P6,   KC_P7,   KC_P8,   KC_P9,   KC_P0,   KC_QUOT, \
+/**/  T__,     ___,     ___,     ___,     ___,     ___,         T__,     T__,     T__,     T__,     T__,     T__,     \
+/**/                    ___,     ___,                                             T__,     T__,                       \
+/**/                             T__,     T__,     T__,         T__,     T__,     T__,                                \
+/**/                             T__,     T__,     T__,         T__,     T__,     T__                                 \
+),
 [_RAISE] = LAYOUT( \
 /**/  T__,     KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, \
 /**/  T__,     KC_HOME, KC_PGUP, KC_PGDN, KC_END,  ___,         KC_PLUS, KC_PEQL, KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO, \
 /**/  T__,     ___,     ___,     ___,     ___,     RESET,       KC_PIPE, KC_GRV,  KC_LT,   KC_GT,   KC_QUES, T__,     \
 /**/                    T__,     T__,                                             KC_LBRC, KC_RBRC,                   \
-/**/                             T__,     T__,     T__,         T__,     T__,     T__,                                \
-/**/                             T__,     T__,     T__,         T__,     T__,     T__                                 \
-),
-[_LOWER] = LAYOUT( \
-/**/  T__,     ___,     ___,     ___,     ___,     ___,         ___,     ___,     ___,     ___,     ___,     ___,     \
-/**/  T__,     KC_P1,   KC_P2,   KC_P3,   KC_P4,   KC_P5,       KC_P6,   KC_P7,   KC_P8,   KC_P9,   KC_P0,   ___,     \
-/**/  T__,     ___,     ___,     ___,     ___,     ___,         KC_BSPC, KC_LEFT, KC_UP,   KC_RGHT, ___,     ___,     \
-/**/                    ___,     ___,                                             KC_DOWN,     ___,                   \
 /**/                             T__,     T__,     T__,         T__,     T__,     T__,                                \
 /**/                             T__,     T__,     T__,         T__,     T__,     T__                                 \
 )
